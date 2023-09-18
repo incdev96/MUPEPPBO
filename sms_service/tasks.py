@@ -1,6 +1,5 @@
 from celery import shared_task
 import requests
-from .models import Mutualist, Sms, SmsDetails
 import time
 
 
@@ -38,6 +37,6 @@ def send_mass_sms_task(phone_numbers, message):
             }
 
         }
-        rq = requests.post(url=api_url, json=payload, headers=headers)
+        rq = requests.post(url=api_url, json=payload, headers=headers)  
         time.sleep(0.2)
     

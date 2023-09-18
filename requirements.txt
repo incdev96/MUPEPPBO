@@ -7,6 +7,7 @@ async-timeout==4.0.3
 attrs==23.1.0
 billiard==4.1.0
 celery==5.3.4
+certifi==2023.7.22
 cffi==1.15.1
 chardet==5.2.0
 charset-normalizer==3.2.0
@@ -14,7 +15,10 @@ click==8.1.7
 click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.3.0
+cron-descriptor==1.4.0
 Django==4.2.5
+django-celery-beat==2.5.0
+django-timezone-field==6.0.1
 frozenlist==1.4.0
 idna==3.4
 kombu==5.3.2
@@ -24,12 +28,15 @@ psycopg==3.1.10
 psycopg-binary==3.1.10
 pycares==4.3.0
 pycparser==2.21
+python-crontab==3.0.0
 python-dateutil==2.8.2
 redis==5.0.0
+requests==2.31.0
 six==1.16.0
 sqlparse==0.4.4
 typing_extensions==4.7.1
 tzdata==2023.3
+urllib3==2.0.4
 vine==5.0.0
 wcwidth==0.2.6
 yarl==1.9.2
