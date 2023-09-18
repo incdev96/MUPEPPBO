@@ -1,0 +1,11 @@
+env/
+mueppbo_project/__init__/
+sms_service/__pycache__/
+sms_service/migrations/__pycache__/
+users/__pycache__/
+users/migrations/__pycache__/
+.python-version
+db.sqlite3
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
