@@ -1,6 +1,7 @@
 from celery import shared_task
 import requests
 import time
+from decouple import config
 
 
 @shared_task
@@ -10,7 +11,7 @@ def get_token(url):
         "grant_type": "client_credentials"
     }
     headers = {
-        "Authorization": "Basic Zk9jVDdoaUpaOURyb1pwZ3k0R2Q5RlA3amMxQUh0dkQ6M0p4a3dyNDNoc3NobXlMMQ==",
+        "Authorization": config("AUTHORIZATION"),
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json",
     }
