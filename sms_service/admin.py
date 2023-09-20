@@ -1,4 +1,7 @@
+from typing import Any
 from django.contrib import admin
+from django.db.models.query import QuerySet
+from django.http.request import HttpRequest
 from .models import Mutualist, Sms
 from . import tasks
 from django.contrib import messages
@@ -9,6 +12,10 @@ from django.contrib import messages
 @admin.register(Mutualist)
 class MutualistAdmin(admin.ModelAdmin):
     list_display = ["full_name", 'phone']
+
+    def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
+        qs =  super().get_queryset(request)
+        return qs.order_by('full_name')
 
 
 @admin.register(Sms)
