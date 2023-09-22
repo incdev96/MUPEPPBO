@@ -8,10 +8,11 @@ from django.contrib import messages
 
 
 
-
 @admin.register(Mutualist)
 class MutualistAdmin(admin.ModelAdmin):
     list_display = ["full_name", 'phone']
+
+    search_fields = ["full_name"]
 
     def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
         qs =  super().get_queryset(request)
