@@ -8,10 +8,17 @@ from django.contrib import messages
 
 
 
+class MutualistInline(admin.TabularInline):
+    model = Sms.mutualists.through
+
+
+
+
 @admin.register(Mutualist)
 class MutualistAdmin(admin.ModelAdmin):
-    list_display = ["full_name", 'phone']
 
+
+    list_display = ["full_name", 'phone']
     search_fields = ["full_name"]
 
     def get_queryset(self, request: HttpRequest) -> QuerySet[Any]:
@@ -19,11 +26,20 @@ class MutualistAdmin(admin.ModelAdmin):
         return qs.order_by('full_name')
 
 
+
 @admin.register(Sms)
 class SmsAdmin(admin.ModelAdmin):
     list_display = ["content",]
     actions = ["send_sms"]
+    
 
+
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "mutualists":
+            kwargs["queryset"] = Mutualist.objects.all().order_by('full_name')
+        return super().formfield_for_manytomany(db_field, request, **kwargs)
+    
+    
 
     @admin.action(description="Envoyez le message à tous les mutualistes")
     def send_sms(self, request, queryset):

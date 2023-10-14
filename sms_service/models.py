@@ -19,9 +19,11 @@ class Sms(models.Model):
     mutualists = models.ManyToManyField(Mutualist)
 
 
+
     class Meta:
         verbose_name = "sms à envoyer"
         verbose_name_plural = "sms à envoyer"
+        
 
     def __str__(self):
         return "Sms à envoyer"
