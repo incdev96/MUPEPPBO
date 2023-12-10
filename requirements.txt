@@ -26,7 +26,6 @@ multidict==6.0.4
 packaging==23.1
 prompt-toolkit==3.0.39
 psycopg==3.1.10
-psycopg-binary==3.1.10
 pycares==4.3.0
 pycparser==2.21
 python-crontab==3.0.0
