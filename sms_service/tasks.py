@@ -6,7 +6,6 @@ from decouple import config
 
 @shared_task
 def get_token(url):
-    url = url
     payload = {
         "grant_type": "client_credentials"
     }
@@ -15,7 +14,7 @@ def get_token(url):
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json",
     }
-    rq = requests.post(url=url, data=payload, headers=headers)
+    rq = requests.post(url, data=payload, headers=headers)
     rq_json = rq.json()
     return rq_json["access_token"]
 
